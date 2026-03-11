@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { Search, CalendarCheck, Bike } from 'lucide-react'
 import ScrollAnimation from './ScrollAnimation'
 
+
 const steps = [
     {
         number: '01',
@@ -106,12 +107,35 @@ export default function HowItWorks() {
                     <div className="relative h-16 overflow-hidden rounded-full">
                         <div className="absolute inset-0 bg-migo-dark/5 rounded-full" />
                         <div className="absolute inset-y-0 left-0 right-0 flex items-center px-8">
-                            <div className="flex-1 h-0.5 bg-repeating-linear-gradient" style={{
-                                background: 'repeating-linear-gradient(90deg, #999CFD 0, #999CFD 24px, transparent 24px, transparent 48px)'
-                            }} />
+                            <motion.div
+  className="flex-1 h-0.5"
+  style={{
+    background:
+      "repeating-linear-gradient(90deg,#999CFD 0,#999CFD 24px,transparent 24px,transparent 48px)"
+  }}
+  animate={{
+    backgroundPosition: ["0px 0px", "-120px 0px"]
+  }}
+  transition={{
+    duration: 1.5,
+    ease: "linear",
+    repeat: Infinity
+  }}
+/>
                         </div>
                         {/* Mini scooter icon */}
-                        <div className="absolute left-[68%] top-1/2 -translate-y-1/2 text-migo-lavender text-xl">🛵</div>
+                        <motion.div
+  className="absolute left-0 top-[13%] -translate-y-1/2 text-migo-lavender text-4xl"
+  initial={{x: "100vw"}}
+  animate={{ x: "-120%" }}
+  transition={{
+    duration: 8,
+    ease: "linear",
+    repeat: Infinity
+  }}
+>
+  🛵
+</motion.div>
                     </div>
                 </ScrollAnimation>
             </div>
