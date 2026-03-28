@@ -12,14 +12,11 @@ export default function Footer() {
                 {/* Top row */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-migo-lavender/10">
                     {/* Brand */}
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-migo-lavender/10 border border-migo-lavender/20 flex items-center justify-center">
-                            <span className="text-migo-lavender font-black text-sm tracking-wider">M</span>
+                    <div className="flex flex-col gap-2 items-start">
+                        <div className="bg-migo-white px-3 py-1.5 rounded-xl">
+                            <img src="/migo-logo.png" alt="MIGO Logo" className="h-8 w-auto object-contain" />
                         </div>
-                        <div>
-                            <span className="text-white font-extrabold text-xl tracking-wide">MIGO</span>
-                            <p className="text-migo-lavender/60 text-xs mt-0.5">Drive Your Freedom</p>
-                        </div>
+                        <p className="text-migo-lavender/60 text-xs mt-1 ml-1">Drive Your Freedom</p>
                     </div>
 
                     {/* Nav links */}
@@ -42,7 +39,7 @@ export default function Footer() {
                     {/* Socials */}
                     <div className="flex items-center gap-3">
                         {[
-                            { icon: <Instagram size={16} />, href: 'https://instagram.com' },
+                            { icon: <Instagram size={16} />, href: 'https://www.instagram.com/migo_official_app?igsh=MWF1OG16YmtpcTM1eQ%3D%3D' },
                             { icon: <Twitter size={16} />, href: 'https://twitter.com' },
                             { icon: <Linkedin size={16} />, href: 'https://linkedin.com' },
                         ].map((s, i) => (

@@ -1254,10 +1254,10 @@ export default function HeroSection() {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                     >
-                        <button onClick={scrollToSignup} className="btn-primary text-base px-8 py-4">
+                        <button onClick={scrollToSignup} className="btn-primary">
                             Join Early Access ✦
                         </button>
-                        <button onClick={scrollToAbout} className="text-base px-8 py-4 rounded-full border border-[#999CFD] text-[#999CFD] bg-transparent hover:bg-[#999CFD]/10 transition-all duration-300">
+                        <button onClick={scrollToAbout} className="btn-secondary border-white/20 text-white hover:border-migo-lavender">
                             Learn More →
                         </button>
                     </motion.div>

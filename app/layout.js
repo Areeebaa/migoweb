@@ -1,6 +1,13 @@
 // app/layout.js
 import './globals.css'
 
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+}
+
 export const metadata = {
     title: 'MIGO — Drive Your Freedom | Women Teaching Women to Ride',
     description:

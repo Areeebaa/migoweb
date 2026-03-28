@@ -235,7 +235,7 @@ export default function ContactSection() {
     }
 
     const socials = [
-        { icon: <Instagram size={18} />, href: 'https://instagram.com', label: 'Instagram' },
+        { icon: <Instagram size={18} />, href: 'https://www.instagram.com/migo_official_app?igsh=MWF1OG16YmtpcTM1eQ%3D%3D', label: 'Instagram' },
         { icon: <Twitter size={18} />, href: 'https://twitter.com', label: 'Twitter' },
         { icon: <Linkedin size={18} />, href: 'https://linkedin.com', label: 'LinkedIn' },
     ]
