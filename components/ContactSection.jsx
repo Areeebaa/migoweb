@@ -335,7 +335,7 @@ export default function ContactSection() {
                             {/* Email */}
                             <div className="glass-card p-6">
                                 <p className="text-migo-dark/50 text-xs font-semibold uppercase tracking-widest mb-3">Email Us</p>
-                                <a href="https://mail.google.com/mail/?view=cm&to=official.migo.app@gmail.com" className="text-migo-dark hover:text-migo-lavender transition-colors duration-200 flex items-center gap-2">
+                                <a href="mailto:official.migo.app@gmail.com?subject=Hello%20MIGO" className="text-migo-dark hover:text-migo-lavender transition-colors duration-200 flex items-center gap-2">
                                     <Mail size={16} className="text-current transition-colors" />
                                     official.migo.app@gmail.com
                                 </a>

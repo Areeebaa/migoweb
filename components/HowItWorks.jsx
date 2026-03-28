@@ -26,7 +26,7 @@ const steps = [
         number: '03',
         icon: <Bike size={26} />,
         title: 'Ride with Confidence',
-        desc: 'Complete your training, earn your certificate, and hit the road independently — forever.',
+        desc: 'Complete your training and hit the road independently — forever.',
         color: 'from-migo-lavender/40 to-migo-lavender/15',
     },
 ]
