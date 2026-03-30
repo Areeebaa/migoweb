@@ -13,8 +13,8 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-8 pb-8 border-b border-migo-lavender/10">
                     {/* Brand */}
                     <div className="flex flex-col gap-2 items-start">
-                        <div className="bg-migo-white px-3 py-1.5 rounded-xl">
-                            <img src="/migo-logo.png" alt="MIGO Logo" className="h-8 w-auto object-contain" />
+                        <div >
+                            <img src="/white-logo.png" alt="MIGO Logo" className="h-14 md:h-16 w-auto object-contain" style={{transform:"scale(1.7)"}} />
                         </div>
                         <p className="text-migo-lavender/60 text-xs mt-1 ml-1">Drive Your Freedom</p>
                     </div>

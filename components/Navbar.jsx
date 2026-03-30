@@ -66,12 +66,13 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-6 py-4 h-20 flex items-center justify-between">
 
         {/* Logo */}
         <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="flex items-center gap-3">
-            <img src="/migo-logo.png" alt="MIGO Logo" className="h-10 w-auto object-contain" />
+            {/* <img src="/the-logo1.png" alt="MIGO Logo" className="h-14  md:h-16 w-auto object-contain" style={{transform:"scale(1.9"}} /> */}
+            <img src={scrolled ? "/dark-logo.png" : "/white-logo.png"} alt="LOGO" className="h-14 md:h-16 w-auto transition-all duration-300" style={{transform:"scale(1.7)" , transformOrigin: "center center"}}/>
           </div>
         </a>
 
