@@ -1,9 +1,10 @@
 'use client'
 // components/OurVision.jsx
-// Mission, empowerment values, and founder story placeholder
+// Mission, empowerment values, and founder testimonial slider
 
-import { motion } from 'framer-motion'
-import { Heart, Zap, Globe } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Heart, Zap, Globe, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import ScrollAnimation, { StaggerContainer, StaggerItem } from './ScrollAnimation'
 
 const values = [
@@ -24,13 +25,43 @@ const values = [
     },
 ]
 
-const stats = [
-    { value: '500+', label: 'Early Signups' },
-    { value: '10+', label: 'Cities' },
-    { value: '2 Weeks', label: 'To Ride Solo' },
+const testimonials = [
+    {
+        quote: 'Mobility isn't just about getting from A to B—it's about freedom. MIGO exists to make that freedom accessible to every woman.',
+        name: 'Dr. S. Fouzia Sayeedunnisa',
+        role: 'Co-Founder, MIGO',
+    },
+    {
+        quote: 'We didn't just see a gap in the market—we saw women being left behind. MIGO is our way of changing that.',
+        name: 'Syeda Arriyan Fatima',
+        role: 'Co-Founder, MIGO',
+    },
+    {
+        quote: 'Confidence on the road changes everything. When a woman learns to ride, she doesn't just gain a skill—she gains independence.',
+        name: 'Adeeba Maryam',
+        role: 'Co-Founder, MIGO',
+    },
+    {
+        quote: 'MIGO is a movement to redefine who owns the road.',
+        name: 'Adeeba Anees',
+        role: 'Co-Founder, MIGO',
+    },
 ]
 
 export default function OurVision() {
+    const [current, setCurrent] = useState(0)
+
+    // Auto-slide every 4 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % testimonials.length)
+        }, 4000)
+        return () => clearInterval(timer)
+    }, [])
+
+    const prev = () => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length)
+    const next = () => setCurrent((c) => (c + 1) % testimonials.length)
+
     return (
         <section id="vision" className="py-28 px-6 bg-migo-dark relative overflow-hidden">
             {/* BG accents */}
@@ -57,18 +88,6 @@ export default function OurVision() {
                     </ScrollAnimation>
                 </div>
 
-                {/* Stats row */}
-                <StaggerContainer className="grid grid-cols-3 gap-4 mb-16 max-w-xl mx-auto" staggerDelay={0.1}>
-                    {stats.map((stat, i) => (
-                        <StaggerItem key={i}>
-                            <div className="text-center glass-card-dark py-6 px-4">
-                                <p className="text-3xl font-extrabold text-migo-lavender mb-1">{stat.value}</p>
-                                <p className="text-white/40 text-xs uppercase tracking-widest">{stat.label}</p>
-                            </div>
-                        </StaggerItem>
-                    ))}
-                </StaggerContainer>
-
                 {/* Values */}
                 <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20" staggerDelay={0.1}>
                     {values.map((v, i) => (
@@ -84,32 +103,77 @@ export default function OurVision() {
                     ))}
                 </StaggerContainer>
 
-                {/* Founder story placeholder */}
+                {/* Founder Testimonial Slider */}
                 <ScrollAnimation variant="fadeUp">
-                    <div className="relative rounded-3xl border border-migo-lavender/20 p-10 md:p-14 overflow-hidden"
+                    <div
+                        className="relative rounded-3xl border border-migo-lavender/20 p-10 md:p-14 overflow-hidden"
                         style={{ background: 'linear-gradient(135deg, rgba(153,156,253,0.06), transparent)' }}
                     >
                         <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-migo-lavender/8 blur-3xl" />
-                        <div className="grid md:grid-cols-[120px_1fr] gap-8 items-center relative z-10">
-                            {/* Founder avatar placeholder */}
-                            <div className="mx-auto md:mx-0">
-                                <div className="w-24 h-24 rounded-2xl bg-migo-lavender/10 border border-migo-lavender/20 flex items-center justify-center text-4xl">
-                                    👩‍💼
-                                </div>
+
+                        {/* Quote icon */}
+                        <div className="flex justify-center mb-6">
+                            <div className="w-12 h-12 rounded-full bg-migo-lavender/10 border border-migo-lavender/20 flex items-center justify-center">
+                                <Quote size={20} className="text-migo-lavender" />
                             </div>
-                            <div>
-                                <p className="text-white/70 text-base md:text-lg leading-relaxed italic mb-5">
-                                    "I founded MIGO because I know what it feels like to want to ride but not have a safe
-                                    space to learn. Every girl deserves that breakthrough moment — and I'm building it for them."
-                                </p>
-                                <div className="flex items-center gap-3">
+                        </div>
+
+                        {/* Slide area */}
+                        <div className="relative min-h-[160px] flex items-center justify-center">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={current}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.45, ease: 'easeInOut' }}
+                                    className="text-center px-4 md:px-16"
+                                >
+                                    <p className="text-white/80 text-base md:text-xl leading-relaxed italic mb-8">
+                                        "{testimonials[current].quote}"
+                                    </p>
                                     <div>
-                                        <p className="text-migo-lavender font-bold text-sm">Founder, MIGO</p>
-                                        {/* Replace with actual founder name */}
-                                        <p className="text-white/30 text-xs">Founder Story coming soon</p>
+                                        <p className="text-migo-lavender font-bold text-sm tracking-wide">
+                                            {testimonials[current].name}
+                                        </p>
+                                        <p className="text-white/30 text-xs mt-1">
+                                            {testimonials[current].role}
+                                        </p>
                                     </div>
-                                </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Controls */}
+                        <div className="flex items-center justify-center gap-6 mt-8">
+                            <button
+                                onClick={prev}
+                                className="w-9 h-9 rounded-full border border-migo-lavender/30 flex items-center justify-center text-migo-lavender/60 hover:text-migo-lavender hover:border-migo-lavender transition-all duration-200"
+                            >
+                                <ChevronLeft size={18} />
+                            </button>
+
+                            {/* Dots */}
+                            <div className="flex gap-2">
+                                {testimonials.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setCurrent(i)}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                            i === current
+                                                ? 'bg-migo-lavender w-5'
+                                                : 'bg-white/20 hover:bg-white/40'
+                                        }`}
+                                    />
+                                ))}
                             </div>
+
+                            <button
+                                onClick={next}
+                                className="w-9 h-9 rounded-full border border-migo-lavender/30 flex items-center justify-center text-migo-lavender/60 hover:text-migo-lavender hover:border-migo-lavender transition-all duration-200"
+                            >
+                                <ChevronRight size={18} />
+                            </button>
                         </div>
                     </div>
                 </ScrollAnimation>
