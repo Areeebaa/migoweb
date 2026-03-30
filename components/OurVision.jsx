@@ -27,17 +27,17 @@ const values = [
 
 const testimonials = [
     {
-        quote: 'Mobility isn't just about getting from A to B—it's about freedom. MIGO exists to make that freedom accessible to every woman.',
+        quote: 'Mobility isn\'t just about getting from A to B—it\'s about freedom. MIGO exists to make that freedom accessible to every woman.',
         name: 'Dr. S. Fouzia Sayeedunnisa',
         role: 'Co-Founder, MIGO',
     },
     {
-        quote: 'We didn't just see a gap in the market—we saw women being left behind. MIGO is our way of changing that.',
+        quote: 'We didn\'t just see a gap in the market—we saw women being left behind. MIGO is our way of changing that.',
         name: 'Syeda Arriyan Fatima',
         role: 'Co-Founder, MIGO',
     },
     {
-        quote: 'Confidence on the road changes everything. When a woman learns to ride, she doesn't just gain a skill—she gains independence.',
+        quote: 'Confidence on the road changes everything. When a woman learns to ride, she doesn\'t just gain a skill—she gains independence.',
         name: 'Adeeba Maryam',
         role: 'Co-Founder, MIGO',
     },
