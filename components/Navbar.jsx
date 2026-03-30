@@ -50,9 +50,17 @@ export default function Navbar() {
   }, [])
 
   const scrollTo = (href) => {
+    // Close menu first, then scroll after a short delay
+    // This prevents Android from blocking the scroll due to state re-renders
     setMenuOpen(false)
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      const el = document.querySelector(href)
+      if (!el) return
+      // Use window.scrollTo with offsetTop for better Android compatibility
+      const navbarHeight = 80
+      const top = el.getBoundingClientRect().top + window.pageYOffset - navbarHeight
+      window.scrollTo({ top, behavior: 'smooth' })
+    }, 300)
   }
 
   return (
